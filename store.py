@@ -1,11 +1,14 @@
 from catalog import catalog # import file catalog getting catalog dictionary
 # global variable
 cart = [] # empty list
+
 # HELPER FUNCTIONS
+
 def header(text):
     print("------------------")
     print(text)
     print("------------------")
+
 def menu():
     print("Menu")
     print("1. View Catalog")
@@ -13,7 +16,9 @@ def menu():
     print("3. View Cart")
     # ADD MORE FEATURES
     print("Q. Quit")
+
 # CATALOG CART AND FUNCTION
+
 def print_catalog():
     header("- Our Catalog -")
     for prod in catalog:  # Ljust means left justify. 15 spaces to the right
@@ -24,6 +29,7 @@ def print_catalog():
         return
     else:
         add_product_to_cart(answer)
+
 def add_product_to_cart(prod_id):
     found = False
     for prod in catalog:
@@ -48,6 +54,7 @@ def search_product():
             break # stop after first match
     if not found:
         print("Sorry, this item dosent exist")
+
 def view_cart():
     header("Your Cart")
     if not cart:
@@ -57,6 +64,7 @@ def view_cart():
             print(f'| {prod["id"]} | {prod["title"].ljust(15)} | ${prod["price"]:.2f} |')
         
 # MAIN PROGRAM LOOP
+
 option = ""
 while option != "q" and option != "Q":
     header("Welcome to Store xy")
